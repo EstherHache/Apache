@@ -21,20 +21,20 @@ iface enp0s3 inet static
       dns-nameservers 192.168.1.230   = ip del servidor de DNS. En mi caso le pongo la misma que address porque este pc va a actuar de servidor de DNS.
 
 
-##Reiniciamos la tarjeta de red:
+## Reiniciamos la tarjeta de red:
 sudo /etc/init.d/networking restart
 
-#2 Instalar y Configurar Servidor Dns
+# 2 Instalar y Configurar Servidor Dns
 
-###2a. Instalar Servidor Dns
+### 2a. Instalar Servidor Dns
 
 Para instalar el servidor de DNS usamos el siguiente comando:
 sudo apt-get install bind9
-###2b. Configurar Servidor Dns
+### 2b. Configurar Servidor Dns
 
-##CONFIGURAMOS
+## CONFIGURAMOS
 sudo nano /etc/bind/named.conf.local
-Con la siguiente configuracion:
+### Con la siguiente configuracion:
 
 //
 // Do any local configuration here
@@ -70,9 +70,9 @@ zone "1.168.192.in-addr.arpa"{
       type master;
       file "/etc/bind/ri.192.168.1";
 };
-Configuraremos en dns del gato.com
+### CONFIGURAMOS:
 sudo nano /etc/bind/rd.gato.com
-Con la siguiente configuracion:
+### Con la siguiente configuracion:
 
 $TTL 38400
 
@@ -86,9 +86,10 @@ $TTL 38400
 @ IN NS servidor01.gato.com.
 servidor01.gato.com. IN A 192.168.1.210
 WWW IN CNAME servidor01.gato.com.
-Configuraremos en dns del mosquito.com
+
+### CONFIGURAMOS:
 sudo nano /etc/bind/rd.mosquito.com
-Con la siguiente configuracion:
+### Con la siguiente configuracion:
 
 $TTL 38400
 
@@ -102,9 +103,12 @@ $TTL 38400
 @ IN NS servidor01.mosquito.com.
 servidor01.mosquito.com. IN A 192.168.1.210
 WWW IN CNAME servidor01.mosquito.com.
-Configuraremos en dns del escherichiacoli.es
+
+
+### CONFIGURAMOS:
 sudo nano /etc/bind/rd.escherichiacoli.es
-Con la siguiente configuracion:
+
+### Con la siguiente configuracion:
 
 $TTL 38400
 
@@ -118,9 +122,10 @@ $TTL 38400
 @ IN NS servidor01.escherichiacoli.es.
 servidor01.escherichiacoli.es. IN A 192.168.1.210
 WWW IN CNAME servidor01.escherichiacoli.es.
-Configuraremos en dns del chip555.org
+
+### CONFIGURAMOS:
 sudo nano /etc/bind/rd.chip555.org
-Con la siguiente configuracion:
+### Con la siguiente configuracion:
 
 $TTL 38400
 
@@ -134,9 +139,11 @@ $TTL 38400
 @ IN NS servidor01.chip555.org.
 servidor01.chip555.org. IN A 192.168.1.210
 WWW IN CNAME servidor01.chip555.org.
-Configuraremos en dns inversa 192.168.1
+
+### CONFIGURAMOS
 sudo nano /etc/bind/ri.192.168.1
-Con la siguiente configuracion:
+
+### Con la siguiente configuracion:
 
 $TTL 38400
 
@@ -153,13 +160,12 @@ $TTL 38400
 210 IN PTR servidor01.escherichiacoli.es.
 210 IN PTR servidor01.chip555.org.
 
-Una vez configurado reinicimos el servicio con una de estas opciones:
-sudo service bind9 restart
+### REINICIAMOS EL SERVICIO:
+
 sudo /etc/init.d/bind9 restart
 
-3. Instalar y Configurar Apache2
+# 3. Instalar y Configurar Apache2
 
-Instalar apache2 con el siguiente comando:
 sudo apt-get install apache2
 
 Crear una estructura de directorios que alojará los datos del sitio que vamos a proporcionar a nuestros visitantes.
