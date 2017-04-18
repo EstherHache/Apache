@@ -194,6 +194,7 @@ sudo nano /var/www/gato.com/html/index.html
 ## Creamos el index de mosquito.com
 
 sudo nano /var/www/mosquito.com/html/index.html
+
 <html>
       <head>
               <title>Un mosquito</title>
@@ -202,9 +203,11 @@ sudo nano /var/www/mosquito.com/html/index.html
               <img src="https://previews.123rf.com/images/shock77/shock770906/shock77090600003/5002033-divertidos-dibujos-animados-de-mosquitos-Foto-de-archivo.jpg"/>
       </body>
 </html>
+
 ## Creamos el index de escherichiacoli.es
 
 sudo nano /var/www/escherichiacoli.es/html/index.html
+
 <html>
         <head>
                 <title>escherichiacoli</title>
@@ -213,6 +216,7 @@ sudo nano /var/www/escherichiacoli.es/html/index.html
                 <img src="http://st2.depositphotos.com/4184747/7821/v/950/depositphotos_78210262-stock-illustration-the-structure-of-escherichia-coli.jpg"/>
         </body>
 </html>
+
 ## Creamos el index de chip555.org
 
 sudo nano /var/www/chip555.org/html/index.html
@@ -233,34 +237,39 @@ sudo cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-availab
 sudo cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/chip555.org.conf
 Configuraremos los ficheros virtual host
 
-Sitio de gato.com
+### Sitio de gato.com
+
 sudo nano /etc/apache2/sites-available/gato.com.conf
 ~~~ <VirtualHost *:80> ServerAdmin admin@gato.com ServerName gato.com ServerAlias www.gato.com DocumentRoot /var/www/gato.com/html ErrorLog ${APACHE_LOG_DIR}/error.log CustomLog ${APACHE_LOG_DIR}/access.log combined ~~~
 
-Sitio de mosquito.com
+### Sitio de mosquito.com
+
 sudo nano /etc/apache2/sites-available/mosquito.com.conf
 ~~~ <VirtualHost *:80> ServerAdmin admin@mosquito.com ServerName mosquito.com ServerAlias www.mosquito.com DocumentRoot /var/www/mosquito.com/html ErrorLog ${APACHE_LOG_DIR}/error.log CustomLog ${APACHE_LOG_DIR}/access.log combined ~~~
 
-Sitio de escherichiacoli.es
+### Sitio de escherichiacoli.es
+
 sudo nano /etc/apache2/sites-available/escherichiacoli.es.conf
 ~~~ <VirtualHost *:80> ServerAdmin admin@escherichiacoli.es ServerName escherichiacoli.es ServerAlias www.escherichiacoli.es DocumentRoot /var/www/escherichiacoli.es/html ErrorLog ${APACHE_LOG_DIR}/error.log CustomLog ${APACHE_LOG_DIR}/access.log combined ~~~
 
-Sitio de chip555.org
+### Sitio de chip555.org
+
 sudo nano /etc/apache2/sites-available/chip555.org.conf
 ~~~ <VirtualHost *:80> ServerAdmin admin@chip555.org ServerName chip555.org ServerAlias www.chip555.org DocumentRoot /var/www/chip555.org/html ErrorLog ${APACHE_LOG_DIR}/error.log CustomLog ${APACHE_LOG_DIR}/access.log combined ~~~
 
-Habilitamos los sitios web que hemos creado con los siguientes commandos
+## Habilitamos los sitios web que hemos creado:
+
 sudo a2ensite gato.com.conf
 sudo a2ensite mosquito.com.conf
 sudo a2ensite escherichiacoli.es.conf
 sudo a2ensite chip555.org.conf
 
-Ahora desactivamos el sitio por defecto de apache2 con el siguiente comando
+## Ahora desactivamos el sitio por defecto de apache2:
+
 sudo a2dissite 000-default.conf
 
-Por ultimo reiniciamos el servicio de apache2 con uno de estos comandos:
+## Reiniciamos el servicio:
 sudo /etc/init.d/apache2 restart
-sudo service apache2 restart
 
 3.1 Acceso con usuario y contraseña a las paginas escherichiacoli.es y chip555.org
 
