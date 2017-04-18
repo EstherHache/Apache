@@ -176,8 +176,10 @@ sudo mkdir -p /var/www/escherichiacoli.es/html
 sudo mkdir -p /var/www/chip555.org/html
 Creamos los sitios web
 
-Creamos el index de gato.com
+## Creamos el index de gato.com
+
 sudo nano /var/www/gato.com/html/index.html
+
 <html>
         <head>
                 <title>Un gatito</title>
@@ -186,7 +188,8 @@ sudo nano /var/www/gato.com/html/index.html
                 <img src="https://c24e867c169a525707e0-bfbd62e61283d807ee2359a795242ecb.ssl.cf3.rackcdn.com/imagenes/gato/etapas-clave-de-su-vida/gatitos/nuevo-gatito-en-casa/gatito-tumbado-lamiendo-sus-patitas.jpg"/>
         </body>
 </html>
-Creamos el index de mosquito.com
+## Creamos el index de mosquito.com
+
 sudo nano /var/www/mosquito.com/html/index.html
 <html>
       <head>
@@ -196,7 +199,8 @@ sudo nano /var/www/mosquito.com/html/index.html
               <img src="https://previews.123rf.com/images/shock77/shock770906/shock77090600003/5002033-divertidos-dibujos-animados-de-mosquitos-Foto-de-archivo.jpg"/>
       </body>
 </html>
-Creamos el index de escherichiacoli.es
+## Creamos el index de escherichiacoli.es
+
 sudo nano /var/www/escherichiacoli.es/html/index.html
 <html>
         <head>
@@ -206,7 +210,8 @@ sudo nano /var/www/escherichiacoli.es/html/index.html
                 <img src="http://st2.depositphotos.com/4184747/7821/v/950/depositphotos_78210262-stock-illustration-the-structure-of-escherichia-coli.jpg"/>
         </body>
 </html>
-Creamos el index de chip555.org
+## Creamos el index de chip555.org
+
 sudo nano /var/www/chip555.org/html/index.html
 <html>
         <head>
@@ -216,6 +221,7 @@ sudo nano /var/www/chip555.org/html/index.html
                 <img src="https://userscontent2.emaze.com/images/93557bbf-b41d-4c3c-b5aa-a75fa9cf9a00/5726ee35-ce52-4705-880c-04ae2a4ab3de.jpg"/>
         </body>
 </html>
+
 Apache viene con un archivo virtual host por defecto llamado 000-default.conf. Vamos a copiarlo para crear un archivo virtual host para cada uno de nuestros dominios.
 
 sudo cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/gato.com.conf
