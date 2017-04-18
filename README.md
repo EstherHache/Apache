@@ -1,17 +1,20 @@
 # Apache
 
+## MODIFICAMOS:
+
 sudo nano /etc/network/interfaces
-### This file describes the network interfaces available on your system
-### and how to activate them. For more information, see interfaces(5).
 
-##MODIFICAMOS:
-###source /etc/network/interfaces.d/*
+(This file describes the network interfaces available on your system
+and how to activate them. For more information, see interfaces(5).)
 
-### The loopback network interface
+## MODIFICAMOS:
+source /etc/network/interfaces.d/*
+
+The loopback network interface
 auto lo
 iface lo inet loopback
 
-### The primary network interface
+The primary network interface
 auto enp0s3
 (iface enp0s3 inet dhcp)
 iface enp0s3 inet static
