@@ -75,6 +75,7 @@ zone "1.168.192.in-addr.arpa"{
 };
 ### CONFIGURAMOS:
 sudo nano /etc/bind/rd.gato.com
+
 ### Con la siguiente configuracion:
 
 $TTL 38400
@@ -92,6 +93,7 @@ WWW IN CNAME servidor01.gato.com.
 
 ### CONFIGURAMOS:
 sudo nano /etc/bind/rd.mosquito.com
+
 ### Con la siguiente configuracion:
 
 $TTL 38400
@@ -191,6 +193,7 @@ sudo nano /var/www/gato.com/html/index.html
                 <img src="https://c24e867c169a525707e0-bfbd62e61283d807ee2359a795242ecb.ssl.cf3.rackcdn.com/imagenes/gato/etapas-clave-de-su-vida/gatitos/nuevo-gatito-en-casa/gatito-tumbado-lamiendo-sus-patitas.jpg"/>
         </body>
 </html>
+
 ## Creamos el index de mosquito.com
 
 sudo nano /var/www/mosquito.com/html/index.html
@@ -271,7 +274,7 @@ sudo a2dissite 000-default.conf
 ## Reiniciamos el servicio:
 sudo /etc/init.d/apache2 restart
 
-3.1 Acceso con usuario y contraseña a las paginas escherichiacoli.es y chip555.org
+# 3.1 Acceso con usuario y contraseña a las paginas escherichiacoli.es y chip555.org
 
 Necesitaremos crear un archivo de contraseñas. Éste archivo debería colocarlo en algún sitio no accesible mediante la Web. Para crear un archivo de contraseñas, usaremos la utilidad htpasswd que viene con Apache. Para crear el archivo:
 
@@ -280,7 +283,8 @@ sudo htpasswd -c /var/www/sitioa.com/passwords user2
 sudo htpasswd  /var/www/sitioa.com/passwords user3
 La opción '-c' se utiliza para crear el fichero.
 
-Añadiremos a nuestro fichero de configuracion de apache:
+### Añadiremos a nuestro fichero de configuracion de apache:
+
 sudo nano /etc/apache2/apache2.conf
 
   <Directory /var/www/escherichiacoli.es/html>
@@ -305,7 +309,7 @@ sudo nano /etc/apache2/apache2.conf
       allow from all
   </Directory>
 Si sustituimos 'Require user user1' por 'Require valid-user ', tendrán acceso todos los usuarios del fichero passwords.
+## REINICIAMOS:
 
-Reiniciamos el demonio y sólo tendrá acceso el user1 a la pagina escherichiacoli.es y a la pagina chip555.org tendran acceso todos los usuarios del archivo passwords situado en /var/www/chip555.org/passwords para reiniciar el servicio/demonio uno de estos comandos.
 sudo /etc/init.d/apache2 restart
-sudo service apache2 restart
+
